@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import vn.techmaster.demo.model.Book;
 import vn.techmaster.demo.service.BookService;
+import vn.techmaster.demo.utils.CSVFileReader;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +28,15 @@ import java.util.List;
 public class BookController {
     @Autowired
     private BookService bookService;
+    private final CSVFileReader csvFileReader;
+    @Autowired
+    public BookController(CSVFileReader csvFileReader) {
+        this.csvFileReader = csvFileReader;
+    }
+    @GetMapping("/import/MOCK_DATA.csv")
+    public List<Book> importBooksFromCSV(@PathVariable String filePath) throws RuntimeException {
+        return csvFileReader.readFile(filePath);
+    }
 
     @GetMapping("/home")
     public String home() {
@@ -38,6 +50,7 @@ public class BookController {
 //    public List<Book> getBooks() {
 //        return books;
 //    }
+
 
     @GetMapping(path = {"", "/getAllBooks"})
     public ResponseEntity<List<Book>> getBooks() {
