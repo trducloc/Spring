@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1> Home page </h1>
+<h2> Hien thi du lieu 1 student
+</h2>
+<ul>
+    <li th:text="${student.id}">id : 1</li>
+    <li th:text="${student.name}">Name : Loc</li>
+    <li>Email : <th:block th:text="${student.email}">Tranducloc@gmail.com</th:block></li>
+    <li th:text="${student.age}">Age : 20</li>
+    <li th:text="${student.score}">Score : 8</li>
+</ul>
+<h2>Hien thi du lieu danh sach student</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>age</th>
+        <th>Score</th>
+        <th>Rank</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${student}" th:classappend="${student.score > 8 ? 'highlight' : ''}">
+        <td th:text="${student.id}">1</td>
+        <td th:text="${student.name}">Loc</td>
+        <td th:text="${student.email}">Tranducloc@gmail.com</td>
+        <td th:text="${student.age}">20</td>
+        <td th:text="${student.score}">8</td>
+        <td th:text="${student.score > 8 ? 'Gioi' : 'Kha'}"></td>
+        <td>
+            <a href="">Xem chi tiet</a>
+        </td>
+
+
+    </tr>
+
+    </tbody>
+</table>
+
+
+<script src="/main.js"></script>
+
+</body>
+</html>

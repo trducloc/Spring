@@ -1,48 +1,65 @@
 package com.example.stream.api.controller;
 
 
+
 import com.example.stream.api.model.Person;
 import com.example.stream.api.service.PersonService;
-import com.example.stream.api.utils.CSVFileReader;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/person")
+@NoArgsConstructor
 public class PersonController {
     @Autowired
     private PersonService personService;
-    private final CSVFileReader csvFileReader;
-    @Autowired
-    public PersonController(CSVFileReader csvFileReader) {
-        this.csvFileReader = csvFileReader;
+    @GetMapping("/")
+    public String getHome (){
+        return "index";
     }
-    @GetMapping("/import/person.csv")
-    public List<Person> importPersonFromCSV(@PathVariable String filePath) throws RuntimeException {
-        return csvFileReader.readFile(filePath);
+    @GetMapping("/getAll") //http://localhost:8080/person/getAll
+    public String getAll(Model model){
+        model.addAttribute("getAll" ,personService.getAll());
+        return "getAll";
     }
-    @GetMapping("")
-    public void printListPeople() {
-        personService.printListPeople();
+    @GetMapping("/longestName") //http://localhost:8080/person/longestName
+    public String longestName (Model model){
+        model.addAttribute("longestName",personService.longestName());
+        return "longestName";
     }
 
-    @GetMapping("/getAll")
-    public ResponseEntity<List<Person>> getAll() {
-        return new ResponseEntity<>(personService.getAll(), HttpStatus.CREATED);
+    @GetMapping("/aboveAverageSalary") //http://localhost:8080/person/aboveAverageSalary
+    public String aboveAverageSalary (Model model){
+        model.addAttribute("aboveAverageSalary",personService.aboveAverageSalary());
+        return "aboveAverageSalary";
+    }
+
+    @GetMapping("/groupPeopleByCity") //http://localhost:8080/person/groupPeopleByCity
+    public String groupPeopleByCity (Model model){
+        model.addAttribute("groupPeopleByCity",personService.groupPeopleByCity());
+        return "groupPeopleByCity";
+    }
+
+    @GetMapping("/groupJobByCount") //http://localhost:8080/person/groupJobByCount
+    public String groupJobByCount (Model model){
+        model.addAttribute("groupJobByCount",personService.groupJobByCount());
+        return "groupJobByCount";
     }
 
     @GetMapping("/sortPeopleByFullName")
-    public ResponseEntity<List<Person>> sortPeopleByFullName() {
-        return new ResponseEntity<>(personService.sortPeopleByFullName(), HttpStatus.CREATED);
+    public String sortPeopleByFullName (Model model){
+        model.addAttribute("namePerson" , personService.sortPeopleByFullName());
+        return "sortPeopleByFullName";
     }
 
     @GetMapping("/sortPeopleByFullNameReversed")
@@ -93,26 +110,6 @@ public class PersonController {
     @GetMapping("/sortedByAgeForMale")
     public ResponseEntity<List<Person>> sortedByAgeForMale() {
         return new ResponseEntity<>(personService.sortedByAgeForMale(), HttpStatus.CREATED);
-    }
-
-    @GetMapping("/longestName")
-    public ResponseEntity<Person> longestName() {
-        return new ResponseEntity<>(personService.longestName(), HttpStatus.CREATED);
-    }
-
-    @GetMapping("/aboveAverageSalary")
-    public ResponseEntity<List<Person>> aboveAverageSalary() {
-        return new ResponseEntity<>(personService.aboveAverageSalary(), HttpStatus.CREATED);
-    }
-
-    @GetMapping("/groupPeopleByCity")
-    public ResponseEntity<Map<String, List<Person>>> groupPeopleByCity() {
-        return new ResponseEntity<>(personService.groupPeopleByCity(), HttpStatus.CREATED);
-    }
-
-    @GetMapping("/groupJobByCount")
-    public ResponseEntity<Map<String, Integer>> groupJobByCount() {
-        return new ResponseEntity<>(personService.groupJobByCount(), HttpStatus.CREATED);
     }
 
     @GetMapping("/inSalaryRange")

@@ -1,0 +1,30 @@
+th {
+    background-color: #05728f;
+    color: white;
+    font-size: 20px;
+}
+h1 {
+    color : #a81e1e;
+    text-align: center;
+}
+ul li {
+    list-style-type: none;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+

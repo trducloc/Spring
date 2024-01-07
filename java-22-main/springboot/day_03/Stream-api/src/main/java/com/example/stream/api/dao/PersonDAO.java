@@ -131,7 +131,7 @@ public class PersonDAO implements PersonRepositoryInterface {
 
     @Override
     public Map<String, List<Person>> groupPeopleByCity() {
-        return getAll().stream()
+        return PersonDB.personList.stream()
                 .collect(Collectors.groupingBy(Person::getCity));
     }
 

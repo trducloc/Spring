@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Get All</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Danh sách tất cả người</h1>
+<table border="1" >
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Gender</th>
+        <th>City</th>
+        <th>Salary</th>
+        <th>Birthday</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person : ${getAll}">
+        <td th:text="${person.id}"></td>
+        <td th:text="${person.fullname}"></td>
+        <td th:text="${person.job}"></td>
+        <td th:text="${person.gender}"></td>
+        <td th:text="${person.city}"></td>
+        <td th:text="${person.salary}"></td>
+        <td th:text="${person.birthday}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

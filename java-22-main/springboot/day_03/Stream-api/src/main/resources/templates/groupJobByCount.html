@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Group Job By Count</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<h1> Danh sách các nghề nghiệp và số người làm nghề đó</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Tên công việc</th>
+        <th>Số lượng người theo công việc</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="job : ${groupJobByCount}">
+        <td th:text="${job.key}"></td>
+        <td th:text="${job.value}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
