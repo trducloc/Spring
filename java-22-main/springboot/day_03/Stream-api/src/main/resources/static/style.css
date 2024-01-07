@@ -27,4 +27,16 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #ddd;
 }
+button {
+    padding: 8px 8px;
+    margin: 0 90px 5px;
+    background-color: #b0abab;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+}
 
+button:hover {
+    background-color: #858080;
+}
