@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang chủ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img src="https://motchilll.tv/wp-content/uploads/2023/11/motchill.png" alt="">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link text-white" href="#">Trang chủ</a>
+                  <a class="nav-link text-white" href="#">Phim lẻ</a>
+                  <a class="nav-link text-white" href="#">Phim chiếu rạp</a>
+                  <a class="nav-link text-white" href="#">Phim bộ</a>
+                  <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Thể loại</a>
+                    <div class="dropdown-content">
+                      <a href="#">Phim kinh dị</a>
+                      <a href="#">Phim hài</a>
+                      <a href="#">Phim tình cảm</a>
+                      <a href="#">Phim hành động</a>
+                    </div>
+                  </li>
+                  <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Quốc gia</a>
+                    <div class="dropdown-content">
+                      <a href="#">Phim Nhật Bản</a>
+                      <a href="#">Phim Âu Mỹ</a>
+                      <a href="#">Phim Việt Nam</a>
+                      <a href="#">Phim Hàn Quốc</a>
+                    </div>
+                  </li>
+                </div>
+                
+                
+                <div class="d-flex">
+                    <div>
+                        <form action="/search" method="GET">
+                            <input type="text" id="search" name="search" placeholder="Type here">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                    <a class="nav-link text-white ms-3" href="#">Đăng nhập</a>
+
+                    
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <section class="py-4">
+        <div class="container">
+            <h3 class="mb-3">Phim HOT</h3>
+            <div class="row">
+                <div class="col-3">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w500/k86ACtdzhdgSrG73Q996OUidKAr.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Tà khí xứ enfield</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w500/1xzFDGjVd3vImJ8bOg39AAQcMqx.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w500/25d3tGQsU2UDJvJpgn0PmhyBNZ0.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Bí ẩn trường lạc</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w500/eSB0fD6CbNW3LT8Z55V07fmYFpo.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Chàng quỷ của tôi</p>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-3">Phim lẻ gần đây</h3>
+                <a href="#">Xem them</a>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/11/Cuong-Thi-Tuong-Quan.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w185/25d3tGQsU2UDJvJpgn0PmhyBNZ0.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/08/La-Bo-Bac-U-Lang.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/09/Hien-Vuong-Trung-Coc.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2024/04/Godzilla-x-Kong-De-Che-Moi.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/03/Salamat-Daks.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-3">Phim bộ gần đây</h3>
+                <a href="#">Xem them</a>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w500/1xzFDGjVd3vImJ8bOg39AAQcMqx.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2020/12/Sweet-Home-2.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/10/Loki.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/08/One-Piece.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/09/Biet-doi-danh-thue-4.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/09/The-Nun-2.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-3">Phim chiếu rạp gần đây</h3>
+                <a href="#">Xem them</a>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/10/Dieu-Ba-Le-Tu-Than.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/07/Dinh-Thu-Ma-Am.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/08/Phim-Blue-Beetle.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2022/09/High-Low-The-Worst-X.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w185/mrV7CcjEtuXtXjykopDUiIgIQru.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/09/Luoi-cua-10.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-3">Tin tức</h3>
+                <a href="#">Xem them</a>    
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="text-center">
+                                <p class="fs-1 fw-bold text-primary mb-1 mt-0">5</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <div class="col-11">
+                            <h3>Top 12 phim ngon tinh Trung quoc khong nen bo qua</h3>
+                            <p>Đây là những bộ phim ngôn tình hiện đại hay nhất màn ảnh Hoa 
+                                ngữ trong khoảng thời gian từ năm 2019 tới nay. Ngôn tình hiện đại luôn là thể loại không bao giờ hết hot với các ...</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="text-center">
+                                <p class="fs-1 fw-bold text-primary mb-1 mt-0">5</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <div class="col-11">
+                            <h3>Top 12 phim ngon tinh Trung quoc khong nen bo qua</h3>
+                            <p>Đây là những bộ phim ngôn tình hiện đại hay nhất màn ảnh Hoa 
+                                ngữ trong khoảng thời gian từ năm 2019 tới nay. Ngôn tình hiện đại luôn là thể loại không bao giờ hết hot với các ...</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="text-center">
+                                <p class="fs-1 fw-bold text-primary mb-1 mt-0">5</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <div class="col-11">
+                            <h3>Top 12 phim ngon tinh Trung quoc khong nen bo qua</h3>
+                            <p>Đây là những bộ phim ngôn tình hiện đại hay nhất màn ảnh Hoa 
+                                ngữ trong khoảng thời gian từ năm 2019 tới nay. Ngôn tình hiện đại luôn là thể loại không bao giờ hết hot với các ...</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="text-center">
+                                <p class="fs-1 fw-bold text-primary mb-1 mt-0">5</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <div class="col-11">
+                            <h3>Top 12 phim ngon tinh Trung quoc khong nen bo qua</h3>
+                            <p>Đây là những bộ phim ngôn tình hiện đại hay nhất màn ảnh Hoa 
+                                ngữ trong khoảng thời gian từ năm 2019 tới nay. Ngôn tình hiện đại luôn là thể loại không bao giờ hết hot với các ...</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-1">
+                            <div class="text-center">
+                                <p class="fs-1 fw-bold text-primary mb-1 mt-0">5</p>
+                                <p>March</p>
+                            </div>
+                        </div>
+                        <div class="col-11">
+                            <h3>Top 12 phim ngon tinh Trung quoc khong nen bo qua</h3>
+                            <p>Đây là những bộ phim ngôn tình hiện đại hay nhất màn ảnh Hoa 
+                                ngữ trong khoảng thời gian từ năm 2019 tới nay. Ngôn tình hiện đại luôn là thể loại không bao giờ hết hot với các ...</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+    
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="mb-3">
+                        <img src="https://motchilll.tv/wp-content/uploads/2023/11/motchill.png" alt="" class="logo">
+                    </div>
+                    <div>
+                        <p> Phimmoi - Trang xem phim Online trực tuyến của chúng tôi cập nhật những bộ phim mới nhất, đa dạng thể loại vô cùng phong phú. Với giao diện mới đơn giản và trực quan đem lại cảm giác trọn vẹn cho các bạn.</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ms-5 ps-3">
+                        <div class="mb-3 ">
+                            <h3>Phim mới</h3>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Phim khoa hoc</a></li>
+                                <li><a href="#">Phim kinh di</a></li>
+                                <li><a href="#">Phim chieu rap</a></li>
+                                <li><a href="#">Phim hinh su</a></li>
+                                <li><a href="#">Phim hanh dong</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ms-5 ps-3">
+                        <div class="mb-3 ">
+                            <h3>Phim hay</h3>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Phim Âu Mỹ</a></li>
+                                <li><a href="#">Phim Hàn Quốc</a></li>
+                                <li><a href="#">Phim Trung Quốc</a></li>
+                                <li><a href="#">Phim Nhật Bản</a></li>
+                                <li><a href="#">Phim Thái Lan</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ms-5 ps-3">
+                        <div class="mb-3 ">
+                            <h3>Thông tin</h3>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Liên hệ chúng tôi</a></li>
+                                <li><a href="#">Điều khoản sử dụng</a></li>
+                                <li><a href="#">Chính sách riêng tư</a></li>
+                                <li><a href="#">Khiếu nại bản quyền</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+        
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+    crossorigin="anonymous"></script>
+  </body>
+</html>

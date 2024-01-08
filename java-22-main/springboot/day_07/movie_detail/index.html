@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-xw9euC3UgLOvF1D6fJ2RvUJ/Q5XsMa4u2+rkQ4F5ILgG7fqNuvA2Ua9CBEvB+61aEOa98bzbCn6cb4zBnxYt1g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                <img src="https://motchilll.tv/wp-content/uploads/2023/11/motchill.png" alt="">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link text-white" href="#">Trang chủ</a>
+                  <a class="nav-link text-white" href="#">Phim lẻ</a>
+                  <a class="nav-link text-white" href="#">Phim chiếu rạp</a>
+                  <a class="nav-link text-white" href="#">Phim bộ</a>
+                  <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Thể loại</a>
+                    <div class="dropdown-content">
+                      <a href="#">Phim kinh dị</a>
+                      <a href="#">Phim hài</a>
+                      <a href="#">Phim tình cảm</a>
+                      <a href="#">Phim hành động</a>
+                    </div>
+                  </li>
+                  <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Quốc gia</a>
+                    <div class="dropdown-content">
+                      <a href="#">Phim Nhật Bản</a>
+                      <a href="#">Phim Âu Mỹ</a>
+                      <a href="#">Phim Việt Nam</a>
+                      <a href="#">Phim Hàn Quốc</a>
+                    </div>
+                  </li>
+                </div>
+                
+                
+                <div class="d-flex">
+                    <div>
+                        <form action="/search" method="GET">
+                            <input type="text" id="search" name="search" placeholder="Type here">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                    <a class="nav-link text-white ms-3" href="#">Đăng nhập</a>
+
+                    
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="container col-9">
+                    <div>
+                        <div class="top">
+                            <a href="#">Trang chủ ></a>
+                            <a href="#">Phim bộ ></a>
+                            <p class="mt-3">Tà khí xứ enfield</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="movie-item">
+                                    <div class="movie-poster rounded overflow-hidden">
+                                        <img src="https://image.tmdb.org/t/p/w185/iIXAKx8k27czX1Y5tTpR70AL3fn.jpg" alt="" class="w-100 h-100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="movie-item">
+                                    <div>
+                                        <h3>Tà khí xứ enfield</h3>
+                                        <p>The Enfield Poltergeist 2023</p>
+                                        <p>Jan. 06, 2024</p>
+                                        <button type="button" style="background-color: rgb(0, 0, 182); color: white;">FULL 4/4 VIETSUB</button>
+                                        <div class="stars-container">
+                                            <div class="circle mt-3">8.2</div>
+                                            <div class="stars1 ms-2">&#9733;&#9733;&#9733;&#9733;</div>
+                                            <div class="stars2">&#9733;</div>
+                                            <button class="ms-3" type="button">Đánh giá của bạn: 0</button>
+                                        </div>
+                                        <div class="genre-container mt-3">
+                                            <p>Phim kịch tính</p>
+                                            <p>Phim kinh dị</p>
+                                            <p>Phim tâm lý</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-container mt-3">
+                            <button class="button-xp mt-2 fw-bold" type="button">Xem phim</button>
+                            <div class="divider" style="background-color: white"></div>
+                            <h3>Thông tin</h3> 
+                            <div class="divider" style="background-color: white"></div>
+                            <h3>Diễn viên</h3>
+                        </div>
+                        <div>
+                            <h3 class="mt-4">Chọn tập phim</h3>
+                            <button type="button" class="mt-3">Tập 1</button>
+                            <button type="button">Tập 2</button>                    
+                            <button type="button">Tập 3</button>
+                            <button type="button">Tập 4 END</button>
+                        </div>  
+                        
+                    </div>
+                </div>
+                <div class="containerr col-3">
+                    <h3>Phim liên quan</h3>
+                    <div class="movie-list">
+                        <div class="movie-item">
+                            <div class="row">
+                                <div class="movie-poster1 col-5">
+                                    <img class="poster" src="https://motchill.vn/storage/files/700x1000_13_1_.jpg" alt="">
+                                </div>
+                                <div class="col-7 ms-0">
+                                    <p class="mt-1 ms-0 fw-bold">Người vợ cuối cùng</p>
+                                    <div class="d-flex">
+                                        <button type="button" style="background-color: yellow">8.4</button>
+                                    <p class="ms-3">2014</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-item">
+                            <div class="row">
+                                <div class="movie-poster1 col-5 mt-2">
+                                    <img class="poster" src="https://phimmoiyyy.net/wp-content/uploads/2023/06/khu-vuon-doi-tra.jpg" alt="">
+                                </div>
+                                <div class="col-7 ms-0">
+                                    <p class="mt-1 ms-0 fw-bold ">Lies Hidden</p>
+                                    <div class="d-flex">
+                                        <button type="button" style="background-color: yellow">6.8</button>
+                                    <p class="ms-3">2015</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movie-item">
+                            <div class="row">
+                                <div class="movie-poster1 col-5 mt-2">
+                                    <img class="poster" src="https://phimmoiyyy.net/wp-content/uploads/2023/05/giao-duc-gioi-tinh-phan-3.jpg" alt="">
+                                </div>
+                                <div class="col-7 ms-0">
+                                    <p class="mt-1 ms-0 fw-bold">Sex Education</p>
+                                    <div class="d-flex">
+                                        <button type="button" style="background-color: yellow">9.1</button>
+                                    <p class="ms-3">2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        
+                
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+            
+    </section>
+
+    <section class="py-4">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="mb-3">Phim mới</h3>
+                <a href="#">Xem thêm</a>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2020/11/Nghe-Thuat-San-Quy-Va-Nau-Mi-Phan-2.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">The Uncanny Counter 2</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://image.tmdb.org/t/p/w500/1xzFDGjVd3vImJ8bOg39AAQcMqx.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Niệm vô song</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/10/Lupin-phan-3.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Lupin</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2020/12/Sweet-Home-2.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Sweet Home</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/09/Gen-V.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Gen V</p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="movie-item">
+                        <div class="movie-poster rounded overflow-hidden">
+                            <img src="https://phimmoiyyy.net/wp-content/uploads/2023/10/Doona.jpg" alt="" class="w-100 h-100">
+                        </div>
+                        <p class="mt-2">Phim tình cảm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="mb-3">
+                        <img src="https://motchilll.tv/wp-content/uploads/2023/11/motchill.png" alt="" class="logo">
+                    </div>
+                    <div>
+                        <p> Phimmoi - Trang xem phim Online trực tuyến của chúng tôi cập nhật những bộ phim mới nhất, đa dạng thể loại vô cùng phong phú. Với giao diện mới đơn giản và trực quan đem lại cảm giác trọn vẹn cho các bạn.</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ms-5 ps-3">
+                        <div class="mb-3 ">
+                            <h3>Phim mới</h3>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Phim khoa hoc</a></li>
+                                <li><a href="#">Phim kinh di</a></li>
+                                <li><a href="#">Phim chieu rap</a></li>
+                                <li><a href="#">Phim hinh su</a></li>
+                                <li><a href="#">Phim hanh dong</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ms-5 ps-3">
+                        <div class="mb-3 ">
+                            <h3>Phim hay</h3>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Phim Âu Mỹ</a></li>
+                                <li><a href="#">Phim Hàn Quốc</a></li>
+                                <li><a href="#">Phim Trung Quốc</a></li>
+                                <li><a href="#">Phim Nhật Bản</a></li>
+                                <li><a href="#">Phim Thái Lan</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ms-5 ps-3">
+                        <div class="mb-3 ">
+                            <h3>Thông tin</h3>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Liên hệ chúng tôi</a></li>
+                                <li><a href="#">Điều khoản sử dụng</a></li>
+                                <li><a href="#">Chính sách riêng tư</a></li>
+                                <li><a href="#">Khiếu nại bản quyền</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>
+        
+        
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+    crossorigin="anonymous"></script>
+  </body>
+</html>

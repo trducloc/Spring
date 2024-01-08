@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Products</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Perfume bar</h1>
+
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <button onclick="searchProducts()">Search</button>
+
+    <label for="priceFilter">Filter by Price:</label>
+    <select id="priceFilter" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="under25">$1,000,000 - $2,500,000</option>
+        <option value="25to30">$2,500,000 - $3,000,000</option>
+        <option value="3to4">$3,000,000 - $4,000,000</option>
+        <option value="over4">Over $4,000,000</option>
+    </select>
+
+    <div class="product-grid" id="productGrid">
+        <div th:each="product : ${getAll}" class="product">
+            <img style="height: 300px" th:src="${product.thumbnail}" alt="Product Image"/>
+            <h2 th:text="${product.name}"></h2>
+<!--            <p th:text="${product.description}"></p>-->
+            <p>Price: <span th:text="${product.prince}"></span> $</p>
+            <p>Rating: <span th:text="${product.rating}"></span></p>
+            <p>Discount: <span th:text="${product.priceDiscount}"></span>%</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
