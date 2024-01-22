@@ -4,6 +4,10 @@ import com.example.day_08.entity.Movie;
 import com.example.day_08.model.enums.MovieType;
 import com.example.day_08.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +24,10 @@ public class MovieService {
     }
 
     public List<Movie> getNewMoviesByType(MovieType movieType) {
-        return movieRepository.getNewMoviesByType(movieType);
+        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
+        Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_BO, true, pageable);
+        return pageData.getContent();
+
     }
 
     public Movie findMovieById(Integer id) {
