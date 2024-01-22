@@ -4,7 +4,6 @@ import com.example.day_08.entity.Movie;
 import com.example.day_08.model.enums.MovieType;
 import com.example.day_08.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,24 +22,26 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public List<Movie> getNewMoviesBo(MovieType movieType) {
-        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
-        Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_BO, true, pageable);
-        return pageData.getContent();
+    public List<Movie> getNewMoviesBo() {
+        return getNewMovies(MovieType.PHIM_BO);
     }
-    public List<Movie> getNewMoviesLe(MovieType movieType) {
-        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
-        Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_LE, true, pageable);
-        return pageData.getContent();
+
+    public List<Movie> getNewMoviesLe() {
+        return getNewMovies(MovieType.PHIM_LE);
     }
-    public List<Movie> getNewMoviesPCR(MovieType movieType) {
-        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
-        Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_CHIEU_RAP, true, pageable);
-        return pageData.getContent();
+
+    public List<Movie> getNewMoviesPCR() {
+        return getNewMovies(MovieType.PHIM_CHIEU_RAP);
     }
+
 
     public Movie findMovieById(Integer id) {
         return movieRepository.findAll().stream().filter(movie -> Objects.equals(movie.getId(), id) && movie.getStatus()).findFirst().orElse(null);
+    }
+
+    public List<Movie> getNewMovies(MovieType movieType) {
+        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
+        return movieRepository.findByTypeAndStatus(movieType, true, pageable).getContent();
     }
 
     public List<Movie> getHotMovies() {

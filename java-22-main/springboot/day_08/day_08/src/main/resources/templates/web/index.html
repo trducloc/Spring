@@ -67,7 +67,7 @@
     <div class="container">
         <h3 class="mb-3">Phim HOT</h3>
         <div class="row">
-            <div class="col-3">
+            <div class="col-3" th:each="movie : ${hotMovies}">
                 <div class="movie-item">
                     <div class="movie-poster rounded overflow-hidden">
                         <img src="https://image.tmdb.org/t/p/w500/k86ACtdzhdgSrG73Q996OUidKAr.jpg" alt="" class="w-100 h-100">
@@ -75,7 +75,7 @@
                     <p class="mt-2">Tà khí xứ enfield</p>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3" th:each="movie : ${hotMovies}">
                 <div class="movie-item">
                     <div class="movie-poster rounded overflow-hidden">
                         <img src="https://image.tmdb.org/t/p/w500/1xzFDGjVd3vImJ8bOg39AAQcMqx.jpg" alt="" class="w-100 h-100">
@@ -83,7 +83,7 @@
                     <p class="mt-2">Niệm vô song</p>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3" th:each="movie : ${hotMovies}">
                 <div class="movie-item">
                     <div class="movie-poster rounded overflow-hidden">
                         <img src="https://image.tmdb.org/t/p/w500/25d3tGQsU2UDJvJpgn0PmhyBNZ0.jpg" alt="" class="w-100 h-100">
@@ -91,7 +91,7 @@
                     <p class="mt-2">Bí ẩn trường lạc</p>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3" th:each="movies : ${hotMovies}">
                 <div class="movie-item">
                     <div class="movie-poster rounded overflow-hidden">
                         <img src="https://image.tmdb.org/t/p/w500/eSB0fD6CbNW3LT8Z55V07fmYFpo.jpg" alt="" class="w-100 h-100">
@@ -99,9 +99,6 @@
                     <p class="mt-2">Chàng quỷ của tôi</p>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </section>
