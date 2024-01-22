@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class MovieService {
@@ -23,7 +24,7 @@ public class MovieService {
     }
 
     public Movie findMovieById(Integer id) {
-        return movieRepository.findMovieById(id).orElse(null);
+        return movieRepository.findAll().stream().filter(movie -> Objects.equals(movie.getId(), id) && movie.getStatus()).findFirst().orElse(null);
     }
 
     public List<Movie> getHotMovies() {
