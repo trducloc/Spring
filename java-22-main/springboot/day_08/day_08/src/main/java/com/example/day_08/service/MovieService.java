@@ -23,11 +23,20 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public List<Movie> getNewMoviesByType(MovieType movieType) {
+    public List<Movie> getNewMoviesBo(MovieType movieType) {
         Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
         Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_BO, true, pageable);
         return pageData.getContent();
-
+    }
+    public List<Movie> getNewMoviesLe(MovieType movieType) {
+        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
+        Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_LE, true, pageable);
+        return pageData.getContent();
+    }
+    public List<Movie> getNewMoviesPCR(MovieType movieType) {
+        Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
+        Page<Movie> pageData = movieRepository.findByTypeAndStatus(MovieType.PHIM_CHIEU_RAP, true, pageable);
+        return pageData.getContent();
     }
 
     public Movie findMovieById(Integer id) {

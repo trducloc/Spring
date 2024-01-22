@@ -26,9 +26,9 @@ public class WebController {
     public String getHome(Model model) {
         try {
             model.addAttribute("hotMovies", movieService.getHotMovies());
-            model.addAttribute("newMoviesLe", movieService.getNewMoviesByType(MovieType.PHIM_LE));
-            model.addAttribute("newMoviesBo", movieService.getNewMoviesByType(MovieType.PHIM_BO));
-            model.addAttribute("newMoviesPCR", movieService.getNewMoviesByType(MovieType.PHIM_CHIEU_RAP));
+            model.addAttribute("newMoviesLe", movieService.getNewMoviesLe(MovieType.PHIM_LE));
+            model.addAttribute("newMoviesBo", movieService.getNewMoviesBo(MovieType.PHIM_BO));
+            model.addAttribute("newMoviesPCR", movieService.getNewMoviesPCR(MovieType.PHIM_CHIEU_RAP));
         } catch (Exception e){
             return "error";
         }
@@ -37,7 +37,7 @@ public class WebController {
     @GetMapping("/phim-chieu-rap")
     public String getPhimChieuRap(Model model){
         try{
-            model.addAttribute("newMoviesPCR", movieService.getNewMoviesByType(MovieType.PHIM_CHIEU_RAP));
+            model.addAttribute("newMoviesPCR", movieService.getNewMoviesPCR(MovieType.PHIM_CHIEU_RAP));
         }
         catch (Exception e){
             return "error";
@@ -47,7 +47,7 @@ public class WebController {
     @GetMapping("/phim-le")
     public String getPhimLe(Model model){
         try{
-            model.addAttribute("newMoviesLe", movieService.getNewMoviesByType(MovieType.PHIM_LE));
+            model.addAttribute("newMoviesLe", movieService.getNewMoviesLe(MovieType.PHIM_LE));
         }
         catch (Exception e){
             return "error";
@@ -57,7 +57,7 @@ public class WebController {
     @GetMapping("/phim-bo")
     public String getPhimBo(Model model){
         try{
-            model.addAttribute("newMoviesBo", movieService.getNewMoviesByType(MovieType.PHIM_BO));
+            model.addAttribute("newMoviesBo", movieService.getNewMoviesBo(MovieType.PHIM_BO));
         }
         catch (Exception e){
             return "error";

@@ -72,7 +72,7 @@
                     <div class="movie-poster rounded overflow-hidden">
                         <img th:href="@{/phim/{id}/{slug} (id=${movie.id}, slug=${ movie.slug})}" src="https://image.tmdb.org/t/p/w500/k66M69Vs5ROks9qAQbs49LV8515.jpg" alt="" class="w-100 h-100">
                     </div>
-                    <p class="mt-2">Hầm mộ quỷ</p>
+                    <p th:text="${movie.title}" class="mt-2">Hầm mộ quỷ</p>
                 </div>
             </div>
             <div class="col-3" th:each="movie : ${newMoviesBo}">
@@ -80,7 +80,7 @@
                     <div class="movie-poster rounded overflow-hidden">
                         <img th:href="@{/phim/{id}/{slug} (id=${movie.id}, slug=${ movie.slug})}" src="https://image.tmdb.org/t/p/w500/1xzFDGjVd3vImJ8bOg39AAQcMqx.jpg" alt="" class="w-100 h-100">
                     </div>
-                    <p class="mt-2">Niệm vô song</p>
+                    <p th:text="${movie.title}" class="mt-2">Niệm vô song</p>
                 </div>
             </div>
             <div class="col-3" th:each="movie : ${newMoviesBo}">
@@ -88,7 +88,7 @@
                     <div class="movie-poster rounded overflow-hidden">
                         <img th:href="@{/phim/{id}/{slug} (id=${movie.id}, slug=${ movie.slug})}" src="https://image.tmdb.org/t/p/w500/tw4tJa11JiRoTod4D0kzZrqSG4M.jpg" alt="" class="w-100 h-100">
                     </div>
-                    <p class="mt-2">Kim xà phu nhân</p>
+                    <p th:text="${movie.title}" class="mt-2">Kim xà phu nhân</p>
                 </div>
             </div>
             <div class="col-3" th:each="movie : ${newMoviesBo}">
@@ -96,7 +96,7 @@
                     <div class="movie-poster rounded overflow-hidden">
                         <img th:href="@{/phim/{id}/{slug} (id=${movie.id}, slug=${ movie.slug})}" src="https://image.tmdb.org/t/p/w500/qMnuYLjEhsAj3wYCBDsj7Fe9iZi.jpg" alt="" class="w-100 h-100">
                     </div>
-                    <p class="mt-2">Cương thi tướng quân</p>
+                    <p th:text="${movie.title}" class="mt-2">Cương thi tướng quân</p>
                 </div>
             </div>
 
