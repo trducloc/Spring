@@ -4,17 +4,11 @@ import com.example.day_08.entity.Movie;
 import com.example.day_08.model.enums.MovieType;
 import com.example.day_08.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.text.Normalizer;
-import java.util.Locale;
-import java.util.regex.Pattern;
 
 @Controller
 public class WebController {
@@ -83,28 +77,11 @@ public class WebController {
     @GetMapping("/phim/{id}/{slug}")
     public ResponseEntity<String> getChiTietPhim(@PathVariable Integer id, @PathVariable String slug, Model model) {
         Movie movie = movieService.findMovieById(id);
-        if (movie == null || !slug.equals(WebUtils.createSlug(movie.getTitle()))) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Movie not found");
-        }
         model.addAttribute("movie", movie);
         model.addAttribute("moviesRelated", movieService.findMovieRelated(MovieType.valueOf(String.valueOf(movie.getType()))));
         return ResponseEntity.ok("web/chi-tiet-phim");
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleException(Exception e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
-    }
 
-    public static class WebUtils {
-        private static final Pattern NON_LATIN = Pattern.compile("[^\\w-]");
-        private static final Pattern WHITESPACE = Pattern.compile("[\\s]");
-
-        public static String createSlug(String input) {
-            String nowhitespace = WHITESPACE.matcher(input).replaceAll("-");
-            String normalized = Normalizer.normalize(nowhitespace, Normalizer.Form.NFD);
-            return NON_LATIN.matcher(normalized).replaceAll("").toLowerCase(Locale.ENGLISH);
-        }
-    }
 
 }
