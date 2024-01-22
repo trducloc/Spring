@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,18 +16,18 @@ import java.util.Optional;
 @Repository
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
-    Page<Movie> findByTypeAndStatus(MovieType movieType, boolean status, Pageable pageable);
+
     @Query("SELECT m FROM Movie m WHERE m.type = :movieType AND m.status = true ORDER BY m.publishedAt DESC")
-    List<Movie> getNewMoviesByType(MovieType movieType);
+    List<Movie> getNewMovies(@Param("movieType") MovieType movieType);
 
     @Query("SELECT m FROM Movie m WHERE m.id = :id AND m.status = true")
-    Optional<Movie> findMovieById(Integer id);
+    Optional<Movie> findMovieById(@Param("id") Integer id);
 
     @Query("SELECT m FROM Movie m WHERE m.status = true ORDER BY m.rating DESC")
     List<Movie> findMoviesOrderByRatingDesc();
 
     @Query("SELECT m FROM Movie m WHERE m.type = :movieType AND m.status = true ORDER BY m.rating DESC")
-    List<Movie> findMoviesByTypeOrderByRatingDesc(MovieType movieType);
+    List<Movie> findMoviesByTypeOrderByRatingDesc(@Param("movieType") MovieType movieType);
 
 
 
