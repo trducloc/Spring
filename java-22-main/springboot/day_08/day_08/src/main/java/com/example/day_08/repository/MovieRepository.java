@@ -15,6 +15,7 @@ import java.util.Optional;
 @Repository
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
+    Page<Movie> findByTypeAndStatus(MovieType movieType, boolean status, Pageable pageable);
     @Query("SELECT m FROM Movie m WHERE m.type = :movieType AND m.status = true ORDER BY m.publishedAt DESC")
     List<Movie> getNewMoviesByType(MovieType movieType);
 
@@ -26,6 +27,8 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     @Query("SELECT m FROM Movie m WHERE m.type = :movieType AND m.status = true ORDER BY m.rating DESC")
     List<Movie> findMoviesByTypeOrderByRatingDesc(MovieType movieType);
+
+
 
 
     // Tiìm kiếm movie theo title

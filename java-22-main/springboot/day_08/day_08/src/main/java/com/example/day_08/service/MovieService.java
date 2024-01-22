@@ -10,7 +10,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class MovieService {
@@ -36,8 +35,9 @@ public class MovieService {
 
 
     public Movie findMovieById(Integer id) {
-        return movieRepository.findAll().stream().filter(movie -> Objects.equals(movie.getId(), id) && movie.getStatus()).findFirst().orElse(null);
+        return movieRepository.findMovieById(id).orElse(null);
     }
+
 
     public List<Movie> getNewMovies(MovieType movieType) {
         Pageable pageable = PageRequest.of(0, 6, Sort.by("publishedAt").descending());
