@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách phim chiếu rạp</title>
+    <title>Danh sách tin tức</title>
     <link rel="shortcut icon" href="/web/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/web/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -34,23 +34,28 @@
                     <a class="nav-link text-white" href="/blog">Tin tức</a>
                 </div>
             </div>
+            <div>
+                <div>
+                    <a class="nav-link text-white ms-3" href="#">Đăng nhập</a>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
 
 <section class="py-4">
     <div class="container text-white">
-        <h3 class="mb-3">Danh sách phim chiếu rạp</h3>
+        <h3 class="mb-3">Danh sách tin tức</h3>
         <div class="row">
-            <div class="col-2" th:each="movie : ${pageData.getContent()}">
+            <div class="col-2" th:each="blog : ${pageData.getContent()}">
                 <div class="movie-item">
-                    <a th:href="@{/phim/{id}/{slug} (id=${movie.id}, slug=${movie.slug})}"
+                    <a th:href="@{/blog/{id}/{slug} (id=${blog.id}, slug=${blog.slug})}"
                        class="movie-media">
                         <div class="movie-poster rounded overflow-hidden">
                             <img class="w-100 h-100"
-                                 th:src="${movie.poster}" th:alt="${movie.title}">
+                                 th:src="${blog.thumbnail}" th:alt="${blog.title}">
                         </div>
-                        <p class="mt-2 text-white" th:text="${movie.title}">Cô Đi Mà Lấy Chồng Tôi</p>
+                        <p class="mt-2 text-white" th:text="${blog.title}">Cô Đi Mà Lấy Chồng Tôi</p>
                     </a>
                 </div>
             </div>
@@ -59,18 +64,18 @@
             <nav aria-label="...">
                 <ul class="pagination">
                     <li class="page-item" th:classappend="${currentPage == 1 ? 'disabled' : ''}">
-                        <a class="page-link" th:href="@{/phim-chieu-rap (page=${currentPage - 1})}">Previous</a>
+                        <a class="page-link" th:href="@{/blog (page=${currentPage - 1})}">Previous</a>
                     </li>
 
                     <li class="page-item"
                         th:each="pageNumber : ${#numbers.sequence(1, pageData.getTotalPages())}"
                         th:classappend="${pageNumber == currentPage ? 'active' : ''}">
-                        <a class="page-link" th:href="@{/phim-chieu-rap (page=${pageNumber})}"
+                        <a class="page-link" th:href="@{/blog (page=${pageNumber})}"
                            th:text="${pageNumber}"></a>
                     </li>
 
                     <li class="page-item" th:classappend="${currentPage == pageData.getTotalPages() ? 'disabled' : ''}">
-                        <a class="page-link" th:href="@{/phim-chieu-rap (page=${currentPage + 1})}">Next</a>
+                        <a class="page-link" th:href="@{/blog (page=${currentPage + 1})}">Next</a>
                     </li>
                 </ul>
             </nav>

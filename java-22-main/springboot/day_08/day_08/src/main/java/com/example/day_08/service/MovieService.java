@@ -3,48 +3,49 @@ package com.example.day_08.service;
 import com.example.day_08.entity.Movie;
 import com.example.day_08.model.enums.MovieType;
 import com.example.day_08.repository.MovieRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class MovieService {
-
     private final MovieRepository movieRepository;
 
-
-    @Autowired
-    public MovieService(MovieRepository movieRepository) {
-        this.movieRepository = movieRepository;
+    public Page<Movie> getHotMovies(Boolean status, Integer page, Integer size) {
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by("view").descending()); // page trong jpa bắt đầu từ 0
+        return movieRepository.findByStatus(status, pageRequest);
     }
 
-    public List<Movie> getNewMoviesBo() {
-        return getNewMovies(MovieType.PHIM_BO);
+    public List<Movie> getMoviesByType(MovieType movieType, Boolean status, Sort sort) {
+        return movieRepository.findByTypeAndStatus(movieType, status, sort);
     }
 
-    public List<Movie> getNewMoviesLe() {
-        return getNewMovies(MovieType.PHIM_LE);
+    public Page<Movie> getMoviesByType(MovieType movieType, Boolean status, Pageable pageable) {
+        return movieRepository.findByTypeAndStatus(movieType, status, pageable);
     }
 
-    public List<Movie> getNewMoviesPCR() {
-        return getNewMovies(MovieType.PHIM_CHIEU_RAP);
+    public Page<Movie> getMoviesByType(MovieType movieType, Boolean status, Integer page, Integer size) {
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by("publishedAt").descending()); // page trong jpa bắt đầu từ 0
+        return movieRepository.findByTypeAndStatus(movieType, status, pageRequest);
     }
 
-    public Movie findMovieById(Integer id) {
-        return movieRepository.findMovieById(id).orElse(null);
+    public Movie getMovie(Integer id, String slug, Boolean status) {
+        return movieRepository.findByIdAndSlugAndStatus(id, slug, status).orElse(null);
     }
 
-    public List<Movie> getNewMovies(MovieType movieType) {
-        return movieRepository.getNewMovies(movieType);
+    public List<Movie> getRelatedMovies(Integer id, MovieType type, Boolean status, Integer size) {
+        return movieRepository
+                .findByTypeAndStatusAndRatingGreaterThanEqualAndIdNotOrderByRatingDescViewDescPublishedAtDesc(type, status, 5.0, id)
+                .stream()
+                .limit(size)
+                .toList();
     }
-
-    public List<Movie> getHotMovies() {
-        return movieRepository.findMoviesOrderByRatingDesc();
-    }
-
-    public List<Movie> findMovieRelated(MovieType movieType) {
-        return movieRepository.findMoviesByTypeOrderByRatingDesc(movieType);
-    }
-
 }

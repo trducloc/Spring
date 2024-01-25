@@ -6,8 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,24 +14,13 @@ import java.util.Optional;
 @Repository
 
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
-
-    @Query("SELECT m FROM Movie m WHERE m.type = :movieType AND m.status = true ORDER BY m.publishedAt DESC")
-    List<Movie> getNewMovies(@Param("movieType") MovieType movieType);
-
-    @Query("SELECT m FROM Movie m WHERE m.id = :id AND m.status = true")
-    Optional<Movie> findMovieById(@Param("id") Integer id);
-
-    @Query("SELECT m FROM Movie m WHERE m.status = true ORDER BY m.rating DESC")
-    List<Movie> findMoviesOrderByRatingDesc();
-
-    @Query("SELECT m FROM Movie m WHERE m.type = :movieType AND m.status = true ORDER BY m.rating DESC")
-    List<Movie> findMoviesByTypeOrderByRatingDesc(@Param("movieType") MovieType movieType);
-
-
-
-
-    // Tiìm kiếm movie theo title
+    // Tìm kiếm movie theo title
     List<Movie> findByTitle(String title);
+
+    // Lấy giới hạn số lượng bản ghi
+    List<Movie> findFirstByTitle(String title);
+
+    List<Movie> findTop5ByTitle(String title);
 
     // Tìm kiếm movie theo title chứa từ khóa keyword
     List<Movie> findByTitleContaining(String keyword);
@@ -67,7 +54,10 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     // Kiểm tra xem có movie nào có title chứa keyword không
     boolean existsByTitleContaining(String keyword);
-    // Lấy giới hạn số lượng bản ghi
-    List<Movie> findFirstByTitle(String title);
-    List<Movie> findTop5ByTitle(String title);
+
+    List<Movie> findByTypeAndStatusAndRatingGreaterThanEqualAndIdNotOrderByRatingDescViewDescPublishedAtDesc(MovieType type, Boolean status, Double rating, Integer id);
+
+    Page<Movie> findByStatus(Boolean status, Pageable pageable);
+
+    Optional<Movie> findByIdAndSlugAndStatus(Integer id, String slug, Boolean status);
 }
