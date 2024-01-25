@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9f45f713-344c-4cf4-9ccc-8949275bd834" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../day_08/day_08/src/main/java/com/example/day_08/entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day_08/day_08/src/main/java/com/example/day_08/entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day_08/day_08/src/main/java/com/example/day_08/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day_08/day_08/src/main/java/com/example/day_08/repository/MovieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day_08/day_08/src/main/java/com/example/day_08/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day_08/day_08/src/main/java/com/example/day_08/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../day_08/day_08/src/main/resources/templates/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../day_08/day_08/src/main/resources/templates/web/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2bIUmCch08ntKVBjV6MYWlAar0B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/ADMIN/Downloads/java-22-main/java-22-main/springboot/day_07",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f45f713-344c-4cf4-9ccc-8949275bd834" name="Changes" comment="" />
+      <created>1705902242331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705902242331</updated>
+      <workItem from="1705902243360" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
