@@ -1,12 +1,5 @@
-package com.example.day_08.controller;
+package vn.techmaster.movie.controller;
 
-import com.example.day_08.entity.Blog;
-import com.example.day_08.entity.Movie;
-import com.example.day_08.entity.Review;
-import com.example.day_08.model.enums.MovieType;
-import com.example.day_08.service.BlogService;
-import com.example.day_08.service.MovieService;
-import com.example.day_08.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -14,6 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import vn.techmaster.movie.entity.Movie;
+import vn.techmaster.movie.entity.Review;
+import vn.techmaster.movie.model.enums.MovieType;
+import vn.techmaster.movie.service.MovieService;
+import vn.techmaster.movie.service.ReviewService;
 
 import java.util.List;
 
@@ -21,9 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WebController {
     private final MovieService movieService;
-    private final BlogService blogService;
     private final ReviewService reviewService;
-
 
     // Trang chủ
     @GetMapping("/")
@@ -32,15 +28,17 @@ public class WebController {
         Page<Movie> pageDataPhimLe = movieService.getMoviesByType(MovieType.PHIM_LE, true, 1, 6);
         Page<Movie> pageDataPhimBo = movieService.getMoviesByType(MovieType.PHIM_BO, true, 1, 6);
         Page<Movie> pageDataPhimChieuRap = movieService.getMoviesByType(MovieType.PHIM_CHIEU_RAP, true, 1, 6);
-        Page<Blog> pageDataHotBlog = blogService.getHotBlogs(true, 1, 8);
 
         model.addAttribute("phimHotList", pageDataPhimHot.getContent());
         model.addAttribute("phimLeList", pageDataPhimLe.getContent());
         model.addAttribute("phimBoList", pageDataPhimBo.getContent());
         model.addAttribute("phimChieuRapList", pageDataPhimChieuRap.getContent());
-        model.addAttribute("hotBlogList", pageDataHotBlog.getContent());
         return "web/index";
     }
+
+    // Danh sách phim chiếu rạp
+    // /phim-chieu-rap?page=1&size=12 -> page = 1, size = 12
+    // /phim-chieu-rap -> page = 1, size = 12
     @GetMapping("/phim-chieu-rap")
     public String getPhimChieuRap(Model model,
                                   @RequestParam(required = false, defaultValue = "1") Integer page,
@@ -50,6 +48,8 @@ public class WebController {
         model.addAttribute("currentPage", page);
         return "web/phim-chieu-rap";
     }
+
+    // Danh sách phim lẻ
     @GetMapping("/phim-le")
     public String getPhimLe(Model model,
                             @RequestParam(required = false, defaultValue = "1") Integer page,
@@ -59,6 +59,8 @@ public class WebController {
         model.addAttribute("currentPage", page);
         return "web/phim-le";
     }
+
+    // Danh sách phim bộ
     @GetMapping("/phim-bo")
     public String getPhimBo(Model model,
                             @RequestParam(required = false, defaultValue = "1") Integer page,
@@ -69,15 +71,6 @@ public class WebController {
         return "web/phim-bo";
     }
 
-    @GetMapping("/blog")
-    public String getBlogList(Model model,
-                              @RequestParam(required = false, defaultValue = "1") Integer page,
-                              @RequestParam(required = false, defaultValue = "12") Integer size) {
-        Page<Blog> pageData = blogService.getBlogList(page, size);
-        model.addAttribute("pageData", pageData);
-        model.addAttribute("currentPage", page);
-        return "web/blog";
-    }
     // Chi tiết phim
     @GetMapping("/phim/{id}/{slug}")
     public String getPhimDetailPage(Model model, @PathVariable Integer id, @PathVariable String slug) {
@@ -89,25 +82,5 @@ public class WebController {
         model.addAttribute("relatedMovieList", relatedMovieList);
         model.addAttribute("reviewList", reviewList);
         return "web/chi-tiet-phim";
-    }
-//     Chi tiết phim
-    @GetMapping("/blog/{id}/{slug}")
-    public String getBlogDetailPage(Model model, @PathVariable Integer id, @PathVariable String slug) {
-        Blog blog = blogService.getBlog(id, slug, true);
-        List<Blog> relatedBlogList = blogService.getRelatedBlogs(id, true, 6);
-
-        model.addAttribute("blog", blog);
-        model.addAttribute("relatedBlogList", relatedBlogList);
-        return "web/blog-detail";
-    }
-
-    @GetMapping("/dang-ky")
-    public String getDangKy() {
-        return "web/dang-ky";
-    }
-
-    @GetMapping("/dang-nhap")
-    public String getDangNhap() {
-        return "web/dang-nhap";
     }
 }

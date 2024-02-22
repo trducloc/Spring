@@ -1,4 +1,4 @@
-package com.example.day_08.entity;
+package vn.techmaster.movie.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -69,5 +69,4 @@ public class Review {
     void preUpdate() {
         updatedAt = new Date();
     }
-
 }

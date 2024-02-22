@@ -1,21 +1,20 @@
-package com.example.day_08;
+package vn.techmaster.movie;
 
-import com.example.day_08.entity.*;
-import com.example.day_08.model.enums.MovieType;
-import com.example.day_08.model.enums.UserRole;
-import com.example.day_08.repository.*;
 import com.github.javafaker.Faker;
 import com.github.slugify.Slugify;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import vn.techmaster.movie.entity.*;
+import vn.techmaster.movie.model.enums.MovieType;
+import vn.techmaster.movie.model.enums.UserRole;
+import vn.techmaster.movie.repository.*;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-
 @SpringBootTest
-public class InitDataTest {
+public class InitDataTests {
     @Autowired
     private GenreRepository genreRepository;
 
