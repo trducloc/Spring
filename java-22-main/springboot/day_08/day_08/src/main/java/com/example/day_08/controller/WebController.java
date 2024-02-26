@@ -1,10 +1,8 @@
 package com.example.day_08.controller;
 
-import com.example.day_08.entity.Blog;
 import com.example.day_08.entity.Movie;
 import com.example.day_08.entity.Review;
 import com.example.day_08.model.enums.MovieType;
-import com.example.day_08.service.BlogService;
 import com.example.day_08.service.MovieService;
 import com.example.day_08.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WebController {
     private final MovieService movieService;
-    private final BlogService blogService;
+//    private final BlogService blogService;
     private final ReviewService reviewService;
 
 
@@ -32,13 +30,13 @@ public class WebController {
         Page<Movie> pageDataPhimLe = movieService.getMoviesByType(MovieType.PHIM_LE, true, 1, 6);
         Page<Movie> pageDataPhimBo = movieService.getMoviesByType(MovieType.PHIM_BO, true, 1, 6);
         Page<Movie> pageDataPhimChieuRap = movieService.getMoviesByType(MovieType.PHIM_CHIEU_RAP, true, 1, 6);
-        Page<Blog> pageDataHotBlog = blogService.getHotBlogs(true, 1, 8);
+//        Page<Blog> pageDataHotBlog = blogService.getHotBlogs(true, 1, 8);
 
         model.addAttribute("phimHotList", pageDataPhimHot.getContent());
         model.addAttribute("phimLeList", pageDataPhimLe.getContent());
         model.addAttribute("phimBoList", pageDataPhimBo.getContent());
         model.addAttribute("phimChieuRapList", pageDataPhimChieuRap.getContent());
-        model.addAttribute("hotBlogList", pageDataHotBlog.getContent());
+//        model.addAttribute("hotBlogList", pageDataHotBlog.getContent());
         return "web/index";
     }
     @GetMapping("/phim-chieu-rap")
@@ -69,15 +67,15 @@ public class WebController {
         return "web/phim-bo";
     }
 
-    @GetMapping("/blog")
-    public String getBlogList(Model model,
-                              @RequestParam(required = false, defaultValue = "1") Integer page,
-                              @RequestParam(required = false, defaultValue = "12") Integer size) {
-        Page<Blog> pageData = blogService.getBlogList(page, size);
-        model.addAttribute("pageData", pageData);
-        model.addAttribute("currentPage", page);
-        return "web/blog";
-    }
+//    @GetMapping("/blog")
+//    public String getBlogList(Model model,
+//                              @RequestParam(required = false, defaultValue = "1") Integer page,
+//                              @RequestParam(required = false, defaultValue = "12") Integer size) {
+//        Page<Blog> pageData = blogService.getBlogList(page, size);
+//        model.addAttribute("pageData", pageData);
+//        model.addAttribute("currentPage", page);
+//        return "web/blog";
+//    }
     // Chi tiết phim
     @GetMapping("/phim/{id}/{slug}")
     public String getPhimDetailPage(Model model, @PathVariable Integer id, @PathVariable String slug) {
@@ -91,23 +89,23 @@ public class WebController {
         return "web/chi-tiet-phim";
     }
 //     Chi tiết phim
-    @GetMapping("/blog/{id}/{slug}")
-    public String getBlogDetailPage(Model model, @PathVariable Integer id, @PathVariable String slug) {
-        Blog blog = blogService.getBlog(id, slug, true);
-        List<Blog> relatedBlogList = blogService.getRelatedBlogs(id, true, 6);
-
-        model.addAttribute("blog", blog);
-        model.addAttribute("relatedBlogList", relatedBlogList);
-        return "web/blog-detail";
-    }
+//    @GetMapping("/blog/{id}/{slug}")
+//    public String getBlogDetailPage(Model model, @PathVariable Integer id, @PathVariable String slug) {
+//        Blog blog = blogService.getBlog(id, slug, true);
+//        List<Blog> relatedBlogList = blogService.getRelatedBlogs(id, true, 6);
+//
+//        model.addAttribute("blog", blog);
+//        model.addAttribute("relatedBlogList", relatedBlogList);
+//        return "web/blog-detail";
+//    }
 
     @GetMapping("/dang-ky")
     public String getDangKy() {
-        return "web/dang-ky";
+        return "web/auth/dang-ky";
     }
 
     @GetMapping("/dang-nhap")
     public String getDangNhap() {
-        return "web/dang-nhap";
+        return "web/auth/dang-nhap";
     }
 }

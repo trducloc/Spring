@@ -15,3 +15,17 @@ toastr.options = {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
 }
+const activeMenu = () => {
+    const pathName = window.location.pathname;
+    console.log(pathName)
+
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach( menuItem => {
+            if (menuItem.getAttribute('href') === pathName) {
+                menuItem.classList.add('active');
+            }
+        }
+
+    )
+}
+activeMenu();
