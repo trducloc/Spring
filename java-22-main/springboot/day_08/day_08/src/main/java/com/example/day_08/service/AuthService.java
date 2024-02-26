@@ -37,13 +37,13 @@ public class AuthService {
 
     public void register(RegisterRequest request) {
         // check email exist
-        if (userRepository.existsByEmail(request.getEmail())) {
-            throw new BadRequestException("Email da ton tai");
+        if (userRepository.existEmail(request.getEmail())) {
+            throw new BadRequestException("Email đã được sử dụng");
         }
 
         // check password
         if (!request.getPassword().equals(request.getConfirmPassword())) {
-            throw new BadRequestException("Mat khau khong khop");
+            throw new BadRequestException("Mật khẩu không khớp");
         }
 
         //ma hoa password
