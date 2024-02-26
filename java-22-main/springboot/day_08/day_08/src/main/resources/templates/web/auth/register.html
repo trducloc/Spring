@@ -66,11 +66,13 @@
                 }
             });
         });
+        // xu ly register
 
         const formRegister = document.getElementById('form-register');
         const errorMessage = document.getElementById('error-message');
 
         formRegister.addEventListener("submit", (e) => {
+            // Check validate
             e.preventDefault();
 
             const name = document.getElementById('name').value;
@@ -93,7 +95,7 @@
                 email: email,
                 password: password
             };
-
+            // Send data to server using axios
             axios.post('/api/auth/signup', data)
                 .then((response) => {
                     if (response.status === 200) {
@@ -114,6 +116,5 @@
         });
     </script>
 </th:block>
-
 </body>
 </html>
