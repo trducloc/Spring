@@ -3,6 +3,7 @@ package com.example.day_08.service;
 import com.example.day_08.entity.User;
 import com.example.day_08.exception.BadRequestException;
 import com.example.day_08.model.request.LoginRequest;
+import com.example.day_08.model.request.RegisterRequest;
 import com.example.day_08.repository.UserRepository;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -32,5 +33,32 @@ public class AuthService {
 
         // Lưu thông tin user vào trong session
         session.setAttribute("currentUser", user);
+    }
+
+    public void register(RegisterRequest request) {
+        // check email exist
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new BadRequestException("Email da ton tai");
+        }
+
+        // check password
+        if (!request.getPassword().equals(request.getConfirmPassword())) {
+            throw new BadRequestException("Mat khau khong khop");
+        }
+
+        String encodedPassword = passwordEncoder.encode(request.getPassword());
+
+
+        User user = User.builder()
+                .name(request.getName())
+                .email(request.getEmail())
+                .password(encodedPassword)
+                .build();
+
+        userRepository.save(user);
+    }
+
+    public void logout() {
+        session.setAttribute("currentUser", null);
     }
 }

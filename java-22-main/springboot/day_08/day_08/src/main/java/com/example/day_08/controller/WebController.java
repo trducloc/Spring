@@ -101,11 +101,11 @@ public class WebController {
 
     @GetMapping("/dang-ky")
     public String getDangKy() {
-        return "web/auth/dang-ky";
+        return "web/auth/register";
     }
 
     @GetMapping("/dang-nhap")
     public String getDangNhap() {
-        return "web/auth/dang-nhap";
+        return "web/auth/login";
     }
 }

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{web/layout/layout :: layout(~{:: title}, ~{}, ~{:: #main-content}, ~{:: #js})}">
+<head>
+    <title>Đăng nhập</title>
+</head>
+<body>
+
+<th:block id="main-content">
+    <section class="py-4">
+        <div class="container">
+            <h3 class="mb-3 text-center">Đăng ký</h3>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <form class="p-5 rounded bg-body-tertiary" id="form-register">
+                        <div class="mb-3 form-group">
+                            <label for="name" class="form-label">Tên</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Mật khẩu</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password" name="password"/>
+                                <span class="input-group-text icon-toggle-password">
+                                    <i class="fa-regular fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Nhập lại mật khẩu</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirm-password"
+                                       name="confirmPassword"/>
+                                <span class="input-group-text icon-toggle-password">
+                                    <i class="fa-regular fa-eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="submit" class="btn btn-primary px-4">Đăng Ký</button>
+                            <a class="text-primary" href="/dang-nhap">Đăng nhập?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</th:block>
+
+<th:block id="js">
+    <script>
+        const togglePasswordBtns = document.querySelectorAll('.icon-toggle-password');
+        const passwordInputs = document.querySelectorAll('input[type="password"]');
+        togglePasswordBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                if (passwordInputs[index].type === 'password') {
+                    passwordInputs[index].type = 'text';
+                    btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i>';
+                } else {
+                    passwordInputs[index].type = 'password';
+                    btn.innerHTML = '<i class="fa-regular fa-eye"></i>';
+                }
+            });
+        });
+        $(document).ready(function() {
+            $('#form-register').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "Vui lòng nhập địa chỉ email",
+                        email: "Vui lòng nhập địa chỉ email hợp lệ"
+                    },
+                    password: {
+                        required: "Vui lòng nhập mật khẩu",
+                        minlength: "Mật khẩu phải có ít nhất 6 ký tự"
+                    }
+                },
+                submitHandler: function(form) {
+                    const data = $(form).serialize();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/api/auth/register',
+                        data: data,
+                        success: function(response) {
+                            toastr.success("Đăng ký thành công");
+                            setTimeout(() => {
+                                window.location.href = '/login';
+                            }, 1500);
+                        },
+                        error: function(xhr, status, error) {
+                            toastr.error('Đăng ký không thành công');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</th:block>
+</body>
+</html>

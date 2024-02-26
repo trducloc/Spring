@@ -2,6 +2,7 @@ package com.example.day_08.rest;
 
 
 import com.example.day_08.model.request.LoginRequest;
+import com.example.day_08.model.request.RegisterRequest;
 import com.example.day_08.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,16 @@ public class AuthApi {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         authService.login(request);
+        return ResponseEntity.ok().build();
+    }
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
+        authService.register(request);
+        return ResponseEntity.ok().build();
+    }
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        authService.logout();
         return ResponseEntity.ok().build();
     }
 }
