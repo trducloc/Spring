@@ -46,6 +46,7 @@ public class AuthService {
             throw new BadRequestException("Mat khau khong khop");
         }
 
+        //ma hoa password
         String encodedPassword = passwordEncoder.encode(request.getPassword());
 
 
